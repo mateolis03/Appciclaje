@@ -31,7 +31,7 @@ public class registrarUsuario extends AppCompatActivity {
         regName = findViewById(R.id.nombre);
         regEmail = findViewById(R.id.email_address);
         regUsuario = findViewById(R.id.user);
-        regPassword = findViewById(R.id.passwordRegister);
+        regPassword = findViewById(R.id.password);
         regTelefono = findViewById(R.id.number);
         regDireccion = findViewById(R.id.address);
         regBtn = findViewById(R.id.registrarButton);
@@ -53,7 +53,12 @@ public class registrarUsuario extends AppCompatActivity {
                     database = FirebaseDatabase.getInstance();
                     myRef = database.getReference("users");
                     myRef.child(nickname).setValue(usuario);
-
+                    regName.setText("");
+                    regEmail.setText("");
+                    regUsuario.setText("");
+                    regPassword.setText("");
+                    regTelefono.setText("");
+                    regDireccion.setText("");
                 }
             }
         });

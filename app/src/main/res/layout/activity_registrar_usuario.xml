@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cfcfc9"
+    android:background="@color/background"
     tools:context=".registrarUsuario">
 
     <Button
@@ -30,7 +30,7 @@
         android:backgroundTint="#008000"
         android:fontFamily="@font/cairo"
         android:hapticFeedbackEnabled="false"
-        android:text="Volver"
+        android:text="@string/Volver"
         android:textStyle="bold"
         android:onClick="volver"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/cairo"
-        android:hint="Usuario"
+        android:hint="@string/usuario"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +132,7 @@
         app:layout_constraintVertical_bias="0.582" />
 
     <EditText
-        android:id="@+id/passwordRegister"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -147,7 +147,7 @@
         app:layout_constraintVertical_bias="0.653" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo"
         android:layout_width="214dp"
         android:layout_height="176dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,7 +159,7 @@
         app:srcCompat="@drawable/logo4" />
 
     <TextView
-        android:id="@+id/text3"
+        android:id="@+id/registro"
         android:layout_width="346dp"
         android:layout_height="135dp"
         android:fontFamily="@font/cairo"
