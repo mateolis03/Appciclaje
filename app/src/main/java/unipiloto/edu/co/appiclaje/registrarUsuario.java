@@ -21,6 +21,7 @@ public class registrarUsuario extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     TextView regName, regEmail, regUsuario, regPassword, regTelefono, regDireccion;
+    String name;
 
 
     @Override
@@ -37,9 +38,30 @@ public class registrarUsuario extends AppCompatActivity {
         regBtn = findViewById(R.id.registrarButton);
         regBtn.setOnClickListener(new View.OnClickListener() {
 
+
+            public boolean isNumeric(String strNum) {
+                if (strNum == null) {
+                    return false;
+                }
+                try {
+                    double d = Double.parseDouble(strNum);
+                } catch (NumberFormatException nfe) {
+                    return false;
+                }
+                return true;
+            }
+
             @Override
             public void onClick(View view) {
-                String name = regName.getText().toString();
+                try {
+                    if (!regName.getText().toString().equals(null) && !isNumeric(regName.getText().toString())) {
+                        name = regName.getText().toString();
+                    } else {
+                        regName.requestFocus();
+                    }
+                } catch (Exception e) {
+                    System.out.println("monda");
+                }
                 String email = regEmail.getText().toString();
                 String nickname = regUsuario.getText().toString();
                 String password = regPassword.getText().toString();

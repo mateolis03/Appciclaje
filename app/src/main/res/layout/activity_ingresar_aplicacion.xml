@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="60dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/password"
@@ -24,15 +25,17 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/cairo"
-        android:hint="Ingrese contraseña"
+        android:hint="@string/ingrese_contrase_a"
         android:inputType="textPassword"
         android:shadowColor="@color/black"
+        android:textColorHint="#455A64"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.67"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/ingresar_button"
@@ -41,8 +44,9 @@
         android:backgroundTint="@color/green"
         android:fontFamily="@font/cairo"
         android:hapticFeedbackEnabled="false"
-        android:text="Ingresar"
+        android:text="@string/ingresar"
         android:textStyle="bold"
+        android:onClick="home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.872"
@@ -58,7 +62,7 @@
         android:fontFamily="@font/cairo"
         android:hapticFeedbackEnabled="false"
         android:onClick="registrarUsuario"
-        android:text="Registrarse"
+        android:text="@string/registrarse"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,12 +72,11 @@
         app:layout_constraintVertical_bias="0.831" />
 
     <TextView
-        android:id="@+id/texto"
         android:layout_width="342dp"
         android:layout_height="51dp"
         android:background="@color/background"
         android:fontFamily="@font/cairo"
-        android:text="Por favor ingrese los siguientes datos para ingresar a la App:"
+        android:text="@string/por_favor_ingrese_los_siguientes_datos_para_ingresar_a_la_app"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,7 +91,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/cairo"
-        android:text="Recordar usuario"
+        android:minHeight="48dp"
+        android:text="@string/recordar_usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
@@ -96,20 +100,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752" />
 
+
     <EditText
         android:id="@+id/email_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/cairo"
-        android:hint="Ingrese su correo"
+        android:hint="@string/ingrese_su_correo"
         android:inputType="textEmailAddress"
+        android:textColorHint="#455A64"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
+        app:layout_constraintVertical_bias="0.562"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/olvidar_button"
@@ -117,7 +124,7 @@
         android:layout_height="52dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/cairo"
-        android:text="Olvidé contraseña"
+        android:text="@string/olvid_contrase_a"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

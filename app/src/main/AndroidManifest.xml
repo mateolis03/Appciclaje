@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appiclaje">
         <activity
+            android:name=".home"
+            android:exported="false" />
+        <activity
             android:name=".registrarUsuario"
             android:exported="false" />
         <activity
