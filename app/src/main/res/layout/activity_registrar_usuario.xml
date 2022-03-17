@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".registrarUsuario">
+    tools:context=".registration">
 
     <Button
         android:id="@+id/registrarButton"
@@ -16,6 +16,7 @@
         android:hapticFeedbackEnabled="false"
         android:text="@string/registrarse"
         android:textStyle="bold"
+        android:onClick="register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.836"
@@ -30,7 +31,7 @@
         android:backgroundTint="#008000"
         android:fontFamily="@font/cairo"
         android:hapticFeedbackEnabled="false"
-        android:onClick="volver"
+        android:onClick="back"
         android:text="@string/Volver"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +65,7 @@
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="@font/cairo"
-        android:hint="@string/direcci_n"
+        android:hint="@string/direccion"
         android:inputType="textPostalAddress"
         android:textColorHint="#455A64"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,7 +152,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/cairo"
-        android:hint="@string/contrase_a"
+        android:hint="@string/contrasena"
         android:inputType="textPassword"
         android:textColorHint="#455A64"
         app:layout_constraintBottom_toBottomOf="parent"

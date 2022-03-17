@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appiclaje">
         <activity
+            android:name=".OlvidarContrasena"
+            android:exported="false" />
+        <activity
             android:name=".home"
             android:exported="false" />
         <activity
-            android:name=".registrarUsuario"
+            android:name=".registration"
             android:exported="false" />
         <activity
             android:name=".IngresarAplicacion"

@@ -19,24 +19,6 @@
         tools:ignore="MissingConstraints"
         android:contentDescription="@string/todo" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="@font/cairo"
-        android:hint="@string/ingrese_contrase_a"
-        android:inputType="textPassword"
-        android:shadowColor="@color/black"
-        android:textColorHint="#455A64"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67"
-        android:autofillHints="" />
-
     <Button
         android:id="@+id/ingresar_button"
         android:layout_width="wrap_content"
@@ -72,6 +54,7 @@
         app:layout_constraintVertical_bias="0.831" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="342dp"
         android:layout_height="51dp"
         android:background="@color/background"
@@ -101,23 +84,6 @@
         app:layout_constraintVertical_bias="0.752" />
 
 
-    <EditText
-        android:id="@+id/email_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="@font/cairo"
-        android:hint="@string/ingrese_su_correo"
-        android:inputType="textEmailAddress"
-        android:textColorHint="#455A64"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562"
-        android:autofillHints="" />
-
     <Button
         android:id="@+id/olvidar_button"
         android:layout_width="195dp"
@@ -125,6 +91,7 @@
         android:backgroundTint="@color/green"
         android:fontFamily="@font/cairo"
         android:text="@string/olvid_contrase_a"
+        android:onClick="recuperarContraseña"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,5 +99,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.907" />
+
+    <EditText
+        android:id="@+id/email_address"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.573" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="303dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="@string/contrasena"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
