@@ -43,4 +43,9 @@ public class OlvidarContrasena extends AppCompatActivity {
 
     }
 
-}
+    public void back(View view) {
+        Intent intent = new Intent(this, IngresarAplicacion.class);
+        startActivity(intent);
+        finish();
+    }
+    }

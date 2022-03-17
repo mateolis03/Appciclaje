@@ -2,37 +2,34 @@ package unipiloto.edu.co.appiclaje;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class IngresarAplicacion extends AppCompatActivity {
-    Button boton;
-    FirebaseDatabase database;
-    DatabaseReference myRef;
-    TextView regEmail, regPassword;
-    String dbuser, dbpassword;
-    String email;
-    String password;
-    FirebaseAuth  firebaseAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
+    private TextView regEmail, regPassword;
+    private String email;
+    private String password;
+    private FirebaseAuth  firebaseAuth;
+    private Switch switchS;
+    private SharedPreferences sharedPreferences;
 
 
 
@@ -45,8 +42,9 @@ public class IngresarAplicacion extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         database=  FirebaseDatabase.getInstance();
         myRef = database.getReference("Users");
-
-
+        switchS = findViewById(R.id.recordar_sesion);
+        sharedPreferences  = getSharedPreferences("save",MODE_PRIVATE);
+        switchS.setChecked(sharedPreferences.getBoolean("value",true));
     }
 
     public void registrarUsuario(View view) {
@@ -83,6 +81,7 @@ public class IngresarAplicacion extends AppCompatActivity {
                             Intent intent = new Intent(IngresarAplicacion.this, home.class);
                             intent.putExtra("nickname", nickname);
                             startActivity(intent);
+                            finish();
                         }
 
                         @Override
@@ -90,8 +89,8 @@ public class IngresarAplicacion extends AppCompatActivity {
 
                         }
                     });
-                }
-                Toast.makeText(IngresarAplicacion.this, "Error en credenciales", Toast.LENGTH_LONG).show();
+                }else
+                    Toast.makeText(IngresarAplicacion.this, "Error en credenciales", Toast.LENGTH_LONG).show();
             }
 
 
@@ -106,5 +105,18 @@ public class IngresarAplicacion extends AppCompatActivity {
     }
 
 
+    public void saveSession(View view) {
+        if(switchS.isChecked()){
+            SharedPreferences.Editor editor=  getSharedPreferences("save",MODE_PRIVATE).edit();
+            editor.putBoolean("value",true);
+            editor.apply();
+            switchS.setChecked(true);
+        }else{
+            SharedPreferences.Editor editor=  getSharedPreferences("save",MODE_PRIVATE).edit();
+            editor.putBoolean("value",false);
+            editor.apply();
+            switchS.setChecked(false);
+        }
+    }
 }
 

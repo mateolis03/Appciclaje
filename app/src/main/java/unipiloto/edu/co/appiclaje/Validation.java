@@ -20,13 +20,13 @@ public class Validation {
         }
         return true;
     }
+
     public boolean isTeleTelephone(String telephone){
         if (telephone.length()< 10){
             return true;
         }else
         return false;
     }
-
 
     public boolean isEmpty(String parameter){
         return parameter.length() == 0;
@@ -36,5 +36,9 @@ public class Validation {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         boolean correct =pattern.matcher(email).matches();
         return correct;
+    }
+
+    public boolean containSpace(String user){
+        return user.contains(" ");
     }
 }

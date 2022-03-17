@@ -70,7 +70,11 @@ public class registration extends AppCompatActivity {
             cont = false;
         }
         if (validation.isEmpty(nickname)) {
-            Toast.makeText(this, "Ingrese una contraseña", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Ingrese una usuario", Toast.LENGTH_LONG).show();
+            cont = false;
+        }
+        if (validation.containSpace(nickname)){
+            Toast.makeText(this, "El usuario no puede tener espacios", Toast.LENGTH_LONG).show();
             cont = false;
         }
         if (validation.isEmpty(password)) {
@@ -120,26 +124,10 @@ public class registration extends AppCompatActivity {
 
     }
 
-
-             /*   HashMap<String, Usuario> set = new HashMap<>();
-                if (!set.containsKey(nickname)) {
-                    set.put(nickname, usuario);
-                    database = FirebaseDatabase.getInstance();
-                    myRef = database.getReference("users");
-                    myRef.child(nickname).setValue(usuario);
-                    regName.setText("");
-                    regEmail.setText("");
-                    regUser.setText("");
-                    regPassword.setText("");
-                    regTelephone.setText("");
-                    regAddress.setText("");
-                }
-                Toast.makeText(this, "Registro exitoso!",Toast.LENGTH_LONG).show();
-            }*/
-
     public void back(View view) {
         Intent intent = new Intent(this, IngresarAplicacion.class);
         startActivity(intent);
+        finish();
     }
 
 }
