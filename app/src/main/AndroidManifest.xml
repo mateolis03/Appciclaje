@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appiclaje">
         <activity
+            android:name=".PublicarSolicitud"
+            android:exported="false" />
+        <activity
+            android:name=".Home_personaNatural"
+            android:exported="false" />
+        <activity
             android:name=".OlvidarContrasena"
             android:exported="false" />
         <activity
-            android:name=".home"
+            android:name=".Home_reciclador"
             android:exported="false" />
         <activity
-            android:name=".registration"
+            android:name=".Registration"
             android:exported="false" />
         <activity
             android:name=".IngresarAplicacion"

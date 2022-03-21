@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".home">
+    tools:context=".Home_reciclador">
 
     <ImageView
         android:id="@+id/appImagen"
@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/userhome"
-        android:layout_width="95dp"
-        android:layout_height="39dp"
+        android:layout_width="126dp"
+        android:layout_height="37dp"
         android:fontFamily="@font/cairo"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,6 +55,7 @@
         android:layout_height="58dp"
         android:backgroundTint="@color/green"
         android:text="Publicar Solicitud"
+        android:onClick="publicarSolicitud"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
@@ -105,10 +106,10 @@
         android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075"
+        app:layout_constraintVertical_bias="0.082"
         app:srcCompat="@drawable/user" />
 
     <ImageView
