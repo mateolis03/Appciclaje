@@ -28,6 +28,7 @@ public class PublicarSolicitud extends AppCompatActivity {
     public FirebaseAuth firebaseAuth;
     private String origen = "";
     private String destino = "";
+    private String id="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +61,14 @@ public class PublicarSolicitud extends AppCompatActivity {
 
     public void publicarSolicitud() {
         Map<String, Object> map = new HashMap<>();
+        int max=1;
+        int min=9999999;
+        int random=(int)Math.floor(Math.random()*(max-min+1)+min);
+        id= String.valueOf(random);
+        map.put("id",id);
         map.put("origen", origen);
         map.put("destino", destino);
-        database.child("solicitudes").setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.child("solicitudes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
