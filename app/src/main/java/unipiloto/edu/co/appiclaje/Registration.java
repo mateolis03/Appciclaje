@@ -124,7 +124,7 @@ public class Registration extends AppCompatActivity {
 
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-              
+
                 if (task.isSuccessful()) {
 
                     Map<String, Object> map = new HashMap<>();
