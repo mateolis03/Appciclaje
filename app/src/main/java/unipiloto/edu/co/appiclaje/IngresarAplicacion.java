@@ -51,6 +51,7 @@ public class IngresarAplicacion extends AppCompatActivity {
     public void registrarUsuario(View view) {
         Intent intent = new Intent(this, Registration.class);
         startActivity(intent);
+        finish();
     }
 
     public void home(View view) {
@@ -67,7 +68,6 @@ public class IngresarAplicacion extends AppCompatActivity {
             pass = false;
         }
         if (pass) {
-
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

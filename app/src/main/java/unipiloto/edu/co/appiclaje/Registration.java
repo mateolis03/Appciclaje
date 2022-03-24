@@ -79,14 +79,12 @@ public class Registration extends AppCompatActivity {
         validation = new Validation();
         boolean cont = true;
         database = FirebaseDatabase.getInstance().getReference();
-        firebaseAuth = FirebaseAuth.getInstance();
         name = regName.getText().toString();
         email = regEmail.getText().toString();
         nickname = regUser.getText().toString();
         password = regPassword.getText().toString();
         telephone = regTelephone.getText().toString();
         address = regAddress.getText().toString();
-        // Usuario usuario = new Usuario(name, email, password, telephone, address);
         if (validation.isEmpty(name) || validation.isNumeric(name)) {
             Toast.makeText(this, "Ingrese un nombre valido", Toast.LENGTH_LONG).show();
             cont = false;
@@ -121,10 +119,14 @@ public class Registration extends AppCompatActivity {
     }
 
     public void registerUser(String email, String password) {
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+              
                 if (task.isSuccessful()) {
+
                     Map<String, Object> map = new HashMap<>();
                     map.put("name", name);
                     map.put("email", email);
@@ -145,8 +147,10 @@ public class Registration extends AppCompatActivity {
                         }
                     });
                 } else
+                    if (task.getException().toString().contains("email"))
                     Toast.makeText(Registration.this, "Este correo ya está registrado", Toast.LENGTH_LONG).show();
-            }
+                    else{
+            }           Toast.makeText(Registration.this, "La contraseña debe tener 6 caracteres ", Toast.LENGTH_LONG).show();}
         });
 
     }

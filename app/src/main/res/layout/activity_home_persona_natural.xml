@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".Home_personaNatural">
 
     <ImageView
@@ -53,13 +54,51 @@
         android:layout_width="165dp"
         android:layout_height="58dp"
         android:backgroundTint="@color/green"
-        android:text="No sé que hace este usuario"
+        android:text="Publicar Solicitud"
+        android:onClick="publicarSolicitud"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.429" />
+
+    <Button
+        android:id="@+id/ConsultarSolicitud"
+        android:layout_width="165dp"
+        android:layout_height="58dp"
+        android:backgroundTint="@color/green"
+        android:text="Consultar Solicitud"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.757" />
+
+    <ImageView
+        android:id="@+id/imagePublicar"
+        android:layout_width="171dp"
+        android:layout_height="212dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425"
+        app:srcCompat="@drawable/bag" />
+
+    <ImageView
+        android:id="@+id/imageConsultar"
+        android:layout_width="146dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.856"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802"
+        app:srcCompat="@drawable/lupa" />
 
     <ImageView
         android:id="@+id/imageUser"
@@ -73,6 +112,7 @@
         app:layout_constraintVertical_bias="0.082"
         app:srcCompat="@drawable/user" />
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="31dp"
@@ -84,17 +124,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.144"
         app:srcCompat="@drawable/logout" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="230dp"
-        android:layout_height="278dp"
-        android:src="@drawable/diome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.961"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

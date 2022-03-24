@@ -23,19 +23,21 @@ public class PublicarSolicitud extends AppCompatActivity {
     private Button regBtn;
     private DatabaseReference database;
     private DatabaseReference myRef;
-    private TextView regOrigen, regDestino;
+    private TextView regTipo,regPeso,regAddress;
     private Validation validation;
     public FirebaseAuth firebaseAuth;
-    private String origen = "";
-    private String destino = "";
+    private String tipo,peso, address = "";
     private String id="";
-
+    private String nickname="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
         setContentView(R.layout.activity_publicar_solicitud);
-        regOrigen = findViewById(R.id.origen);
-        regDestino = findViewById(R.id.destino);
+        regAddress = findViewById(R.id.addressSoli);
+        regTipo = findViewById(R.id.tipo);
+        regPeso = findViewById(R.id.peso);
+        nickname = intent.getStringExtra("nickname");
     }
 
 
@@ -44,14 +46,19 @@ public class PublicarSolicitud extends AppCompatActivity {
         boolean cont = true;
         database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
-        origen = regOrigen.getText().toString();
-        destino = regDestino.getText().toString();
-        if (validation.isEmpty(origen) || validation.isNumeric(origen)) {
-            Toast.makeText(this, "Ingrese un nombre valido", Toast.LENGTH_LONG).show();
+        address = regAddress.getText().toString();
+        tipo = regTipo.getText().toString();
+        peso = regPeso.getText().toString();
+        if (validation.isEmpty(address) ) {
+            Toast.makeText(this, "Ingrese un dirección válida", Toast.LENGTH_LONG).show();
             cont = false;
         }
-        if (validation.isEmpty(destino) || validation.isNumeric(destino)) {
-            Toast.makeText(this, "Ingrese un nombre valido", Toast.LENGTH_LONG).show();
+        if (validation.isEmpty(tipo)) {
+            Toast.makeText(this, "Ingrese un tipo válido", Toast.LENGTH_LONG).show();
+            cont = false;
+        }
+        if (validation.isEmpty(peso) || !validation.isNumeric(peso)) {
+            Toast.makeText(this, "Ingrese un peso válido", Toast.LENGTH_LONG).show();
             cont = false;
         }
         if (cont) {
@@ -65,17 +72,28 @@ public class PublicarSolicitud extends AppCompatActivity {
         int min=9999999;
         int random=(int)Math.floor(Math.random()*(max-min+1)+min);
         id= String.valueOf(random);
-        map.put("id",id);
-        map.put("origen", origen);
-        map.put("destino", destino);
+        map.put("nickname",nickname);
+        map.put("address", address);
+        map.put("tipo", tipo);
+        map.put("peso",peso);
         database.child("solicitudes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(PublicarSolicitud.this, "Solicitud publicada", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(PublicarSolicitud.this,Home_personaNatural.class);
+                    intent.putExtra("nickname",nickname);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
 
+    }
+    public void back(View view) {
+        Intent intent = new Intent(PublicarSolicitud.this,Home_personaNatural.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
+        finish();
     }
 }

@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Home_reciclador extends AppCompatActivity {
-    private FirebaseAuth firbaseAuth;
 
+    private FirebaseAuth firbaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +23,9 @@ public class Home_reciclador extends AppCompatActivity {
         messageView.setText(text);
 
     }
-    public void publicarSolicitud(View view) {
-        Intent intent = new Intent(this, PublicarSolicitud.class);
-        startActivity(intent);
-    }
+
 
     public void logout(View view) {
-        firbaseAuth.signOut();
         startActivity(new Intent(this, IngresarAplicacion.class));
         finish();
     }

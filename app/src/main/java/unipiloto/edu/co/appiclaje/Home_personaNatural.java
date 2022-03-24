@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Home_personaNatural extends AppCompatActivity {
     private FirebaseAuth firbaseAuth;
+    public String nickname="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +20,18 @@ public class Home_personaNatural extends AppCompatActivity {
         firbaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         TextView messageView = findViewById(R.id.userhome);
-        String text = intent.getStringExtra("nickname");
-        messageView.setText(text);
+        nickname = intent.getStringExtra("nickname");
+        messageView.setText(nickname);
+
+    }
+    public void publicarSolicitud(View view) {
+        Intent intent = new Intent(this, PublicarSolicitud.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
+        finish();
     }
 
     public void logout(View view) {
-        firbaseAuth.signOut();
         startActivity(new Intent(this, IngresarAplicacion.class));
         finish();
     }
