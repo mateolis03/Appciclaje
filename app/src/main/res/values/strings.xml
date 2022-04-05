@@ -18,6 +18,7 @@
     <string name="recordar_usuario">Recordar usuario</string>
     <string name="todo">TODO</string>
     <string name="email">email</string>
-
+    <string name="id">Ingrese el id de la solicitud</string>
+    <string name="consultar">Consultar</string>
 
 </resources>

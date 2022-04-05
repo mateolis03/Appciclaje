@@ -22,7 +22,6 @@ import java.util.Map;
 public class PublicarSolicitud extends AppCompatActivity {
     private Button regBtn;
     private DatabaseReference database;
-    private DatabaseReference myRef;
     private TextView regTipo,regPeso,regAddress;
     private Validation validation;
     public FirebaseAuth firebaseAuth;
