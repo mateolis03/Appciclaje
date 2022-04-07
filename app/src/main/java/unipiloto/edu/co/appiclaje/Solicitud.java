@@ -1,14 +1,15 @@
 package unipiloto.edu.co.appiclaje;
 
 public class Solicitud {
-    int id;
-    String origen;
-    String destino;
+    private int id;
+    private String tipo;
+    private String peso;
+    private String direccion;
 
-    public Solicitud(int id, String origen, String destino) {
-        this.id = id;
-        this.origen = origen;
-        this.destino = destino;
+    public Solicitud(String tipo, String peso, String direccion) {
+        this.tipo = tipo;
+        this.peso = peso;
+        this.direccion = direccion;
     }
 
     public int getId() {
@@ -19,28 +20,27 @@ public class Solicitud {
         this.id = id;
     }
 
-    public String getOrigen() {
-        return origen;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setOrigen(String origen) {
-        this.origen = origen;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getDestino() {
-        return destino;
+    public String getPeso() {
+        return peso;
     }
 
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
 
-    @Override
-    public String toString() {
-        return "Solicitud{" +
-                "id=" + id +
-                ", origen='" + origen + '\'' +
-                ", destino='" + destino + '\'' +
-                '}';
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

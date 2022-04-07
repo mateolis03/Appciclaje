@@ -19,6 +19,14 @@
     <string name="todo">TODO</string>
     <string name="email">email</string>
     <string name="id">Ingrese el id de la solicitud</string>
-    <string name="consultar">Consultar</string>
+    <string name="consultar">Consultar solicitudes</string>
+    <string name="consultarBtn">ir</string>
+    <string-array name="solicitud">
+        <item>Id</item>
+        <item>Tipo</item>
+        <item>Peso</item>
+        <item>Dirección</item>
+
+    </string-array>
 
 </resources>

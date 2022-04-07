@@ -34,7 +34,6 @@ public class Home_personaNatural extends AppCompatActivity {
         Intent intent = new Intent(this, ConsultarSolicitud.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
-        finish();
     }
 
 

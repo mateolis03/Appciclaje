@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+
     tools:context=".ConsultarSolicitud">
 
     <ImageView
@@ -23,133 +24,48 @@
 
     <Button
         android:id="@+id/ConsultarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="81dp"
+        android:layout_height="39dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/cairo"
         android:hapticFeedbackEnabled="false"
+        android:text="@string/consultarBtn"
         android:onClick="consultar"
-        android:text="@string/consultar"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919" />
+        app:layout_constraintVertical_bias="0.384" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="299dp"
+        android:layout_width="213dp"
         android:layout_height="34dp"
         android:background="@color/background"
         android:fontFamily="@font/cairo"
         android:text="@string/consultar"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.381" />
 
-    <EditText
-        android:id="@+id/consulta_id"
-        android:layout_width="250dp"
-        android:layout_height="49dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/id"
-        android:inputType="text"
-        android:textColorHint="#455A64"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
-
     <ListView
-        android:id="@+id/listView"
-        android:layout_width="145dp"
-        android:layout_height="197dp"
+        android:id="@+id/listId"
+        android:layout_width="354dp"
+        android:layout_height="395dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
-
-    <TextView
-        android:id="@+id/tipo"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
-        android:background="@color/background"
-        android:fontFamily="@font/cairo"
-        android:text="Tipo"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
-
-    <TextView
-        android:id="@+id/peso"
-        android:layout_width="81dp"
-        android:layout_height="34dp"
-        android:background="@color/background"
-        android:fontFamily="@font/cairo"
-        android:text="Peso"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707" />
-
-    <TextView
-        android:id="@+id/direccion2"
-        android:layout_width="81dp"
-        android:layout_height="34dp"
-        android:background="@color/background"
-        android:fontFamily="@font/cairo"
-        android:text="Usuario"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
-
-    <TextView
-        android:id="@+id/direccion"
-        android:layout_width="81dp"
-        android:layout_height="34dp"
-        android:background="@color/background"
-        android:fontFamily="@font/cairo"
-        android:text="Dirección"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        app:layout_constraintVertical_bias="0.907" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
