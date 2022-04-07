@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 public class Home_personaNatural extends AppCompatActivity {
     private FirebaseAuth firbaseAuth;
@@ -19,6 +20,7 @@ public class Home_personaNatural extends AppCompatActivity {
         setContentView(R.layout.activity_home_persona_natural);
         firbaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
+        String id = firbaseAuth.getCurrentUser().getUid();
         TextView messageView = findViewById(R.id.userhome);
         nickname = intent.getStringExtra("nickname");
         messageView.setText(nickname);
@@ -30,6 +32,7 @@ public class Home_personaNatural extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
     public void consultarSolicitud(View view) {
         Intent intent = new Intent(this, ConsultarSolicitud.class);
         intent.putExtra("nickname",nickname);

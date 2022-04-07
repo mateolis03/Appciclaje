@@ -34,88 +34,56 @@ public class ConsultarSolicitud extends AppCompatActivity {
     private String nickname;
     private List<String> listaId;
     private List<String> listaSolicitud;
-    public int cont =0;
+    public int cont;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_solicitud);
-        firbaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
+        cont =0;
         nickname = intent.getStringExtra("nickname");
         listView = (ListView) findViewById(R.id.listId);
         listaId = new ArrayList<>();
-        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+        AdapterView.OnItemClickListener itemClickListener = new  AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String id =listaId.get(i);
-                Query query = FirebaseDatabase.getInstance().getReference("solicitudes").child(id);
-                query.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        if (snapshot.exists()) {
-                           String tipo =snapshot.child("tipo").getValue().toString();
-                           String peso =snapshot.child("peso").getValue().toString();
-                           String direccion =snapshot.child("address").getValue().toString();
-                            listaSolicitud.add(0,tipo);
-                            listaSolicitud.add(0,peso);
-                            listaSolicitud.add(2,direccion);
-                            ArrayAdapter<String> adapterSolicitud = new ArrayAdapter<>(
-                                    ConsultarSolicitud.this,
-                                    android.R.layout.simple_list_item_1,
-                                    listaSolicitud);
-                            listView.setAdapter(adapterSolicitud);
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                Intent intent = new Intent(ConsultarSolicitud.this, DetalleSolicitud.class);
+                intent.putExtra("id",listaId.get(i));
+                startActivity(intent);
+                finish();
             }
         };
         listView.setOnItemClickListener(itemClickListener);
     }
-
-
-
-
-
     public void consultar(View view) {
         if (cont==0){
-        cont++;
+            cont++;
+            Query query = FirebaseDatabase.getInstance().getReference("solicitudes").orderByChild("nickname").equalTo(nickname);
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            if (!dataSnapshot.getKey().isEmpty()) {
+                                listaId.add(dataSnapshot.getKey());
 
-        Query query = FirebaseDatabase.getInstance().getReference("solicitudes").orderByChild("nickname").equalTo(nickname);
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        if (!dataSnapshot.getKey().isEmpty()) {
-                            listaId.add(dataSnapshot.getKey());
-
+                            }
                         }
                     }
+                    ArrayAdapter<String> listAdapter = new ArrayAdapter<>(
+                            ConsultarSolicitud.this,
+                            android.R.layout.simple_list_item_1,
+                            listaId);
+                    listView.setAdapter(listAdapter);
                 }
-                ArrayAdapter<String> listAdapter = new ArrayAdapter<>(
-                        ConsultarSolicitud.this,
-                        android.R.layout.simple_list_item_1,
-                        listaId);
-                listView.setAdapter(listAdapter);
-
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }else{
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
+    }
+        else{
             Toast.makeText(ConsultarSolicitud.this, "Ya se listaron sus solicitudes", Toast.LENGTH_LONG).show();
         }
     }
