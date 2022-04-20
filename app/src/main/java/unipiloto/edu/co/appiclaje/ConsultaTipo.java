@@ -32,13 +32,15 @@ public class ConsultaTipo extends AppCompatActivity {
     private List<String> listTipo;
     private ListView listView;
     private Validation validation;
-    private int cont =0;
+    private int cont;
+    private  boolean exist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_tipo);
         regId = findViewById(R.id.consulta_id);
+        cont=0;
         Intent intent = getIntent();
         nickname = intent.getStringExtra("nickname");
         listView = (ListView) findViewById(R.id.listTipo);
@@ -54,53 +56,62 @@ public class ConsultaTipo extends AppCompatActivity {
         };
         listView.setOnItemClickListener(itemClickListener);
     }
-    public void validacion(String tipo){
-        boolean cont =true;
+    public boolean validacion(){
+        boolean c =true;
         validation = new Validation();
-        if (validation.isEmpty(tipo)) {
+        if (validation.isEmpty(id)) {
             Toast.makeText(this, "No deje este campo vacío", Toast.LENGTH_LONG).show();
-            cont = false;
+            c = false;
         }
-        if (cont) {
-            getSolicitudes();
-        }
+        return c;
     }
     public void consultar(View view) {
         if (cont == 0) {
             cont++;
             id = regId.getText().toString();
-            validacion(id);
-        } else{
+            if(validacion()){
+                Query query = FirebaseDatabase.getInstance().getReference("solicitudes").orderByChild("nickname").equalTo(nickname);
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        if (snapshot.exists()) {
+                            List<String> values=new ArrayList<>();
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                if (!dataSnapshot.getKey().isEmpty()) {
+                                    String tipo =dataSnapshot.child("tipo").getValue().toString();
+                                    if(tipo.equalsIgnoreCase(id)){
+                                        listTipo.add(dataSnapshot.getKey());
+
+                                    }
+                                }
+                            }
+                            if(listTipo.isEmpty()){
+                                Toast.makeText(ConsultaTipo.this, "No existen solicitudes", Toast.LENGTH_LONG).show();
+                                cont=0;
+                            }
+
+                        }
+
+                        ArrayAdapter<String> listAdapter = new ArrayAdapter<>(
+                                ConsultaTipo.this,
+                                android.R.layout.simple_list_item_1,
+                                listTipo);
+                        listView.setAdapter(listAdapter);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+            }else{
+                Toast.makeText(ConsultaTipo.this, "No deje el campo vacio", Toast.LENGTH_LONG).show();
+            }
+        }
+        else{
             Toast.makeText(ConsultaTipo.this, "Ya se listaron sus solicitudes", Toast.LENGTH_LONG).show();
         }
     }
-    public void getSolicitudes(){
-        Query query = FirebaseDatabase.getInstance().getReference("solicitudes").orderByChild("nickname").equalTo(nickname);
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    List<String> values=new ArrayList<>();
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        if (!dataSnapshot.getKey().isEmpty()) {
-                            String tipo =dataSnapshot.child("tipo").getValue().toString();
-                            if(tipo.contains(id)){
-                                listTipo.add(dataSnapshot.getKey());
-                            }
-                        }
-                    }
-                }
-                ArrayAdapter<String> listAdapter = new ArrayAdapter<>(
-                        ConsultaTipo.this,
-                        android.R.layout.simple_list_item_1,
-                        listTipo);
-                listView.setAdapter(listAdapter);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
+
 
     }
 
