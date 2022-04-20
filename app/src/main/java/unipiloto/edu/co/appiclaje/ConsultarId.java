@@ -24,16 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsultarSolicitud extends AppCompatActivity {
-    public DatabaseReference database;
-    private DatabaseReference myRef;
-    private TextView regId;
-    private ListView regList;
+public class ConsultarId extends AppCompatActivity {
     private ListView listView;
     private FirebaseAuth firbaseAuth;
     private String nickname;
     private List<String> listaId;
-    private List<String> listaSolicitud;
     public int cont;
 
 
@@ -49,7 +44,7 @@ public class ConsultarSolicitud extends AppCompatActivity {
         AdapterView.OnItemClickListener itemClickListener = new  AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ConsultarSolicitud.this, DetalleSolicitud.class);
+                Intent intent = new Intent(ConsultarId.this, DetalleSolicitud.class);
                 intent.putExtra("id",listaId.get(i));
                 startActivity(intent);
                 finish();
@@ -73,7 +68,7 @@ public class ConsultarSolicitud extends AppCompatActivity {
                         }
                     }
                     ArrayAdapter<String> listAdapter = new ArrayAdapter<>(
-                            ConsultarSolicitud.this,
+                            ConsultarId.this,
                             android.R.layout.simple_list_item_1,
                             listaId);
                     listView.setAdapter(listAdapter);
@@ -84,7 +79,7 @@ public class ConsultarSolicitud extends AppCompatActivity {
             });
     }
         else{
-            Toast.makeText(ConsultarSolicitud.this, "Ya se listaron sus solicitudes", Toast.LENGTH_LONG).show();
+            Toast.makeText(ConsultarId.this, "Ya se listaron sus solicitudes", Toast.LENGTH_LONG).show();
         }
     }
 }

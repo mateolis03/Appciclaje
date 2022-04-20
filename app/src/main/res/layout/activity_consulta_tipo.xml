@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ConsultarId">
+    tools:context=".ConsultaTipo">
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,48 +23,65 @@
 
     <Button
         android:id="@+id/ConsultarButton"
-        android:layout_width="81dp"
-        android:layout_height="39dp"
+        android:layout_width="96dp"
+        android:layout_height="43dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/cairo"
         android:hapticFeedbackEnabled="false"
-        android:text="@string/consultarBtn"
         android:onClick="consultar"
+        android:text="ir"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.53" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="213dp"
+        android:layout_width="299dp"
         android:layout_height="34dp"
         android:background="@color/background"
         android:fontFamily="@font/cairo"
         android:text="@string/consultar"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.381" />
 
-    <ListView
-        android:id="@+id/listId"
-        android:layout_width="354dp"
-        android:layout_height="395dp"
+    <EditText
+        android:id="@+id/consulta_id"
+        android:layout_width="250dp"
+        android:layout_height="49dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="Ingrese el tipo de reciclaje"
+        android:inputType="text"
+        android:textColorHint="#455A64"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintVertical_bias="0.535" />
+
+    <ListView
+        android:id="@+id/listTipo"
+        android:layout_width="279dp"
+        android:layout_height="252dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.939" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,38 +9,28 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Home_personaNatural extends AppCompatActivity {
+public class TipoConsulta extends AppCompatActivity {
     private FirebaseAuth firbaseAuth;
     public String nickname="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_persona_natural);
+        setContentView(R.layout.activity_tipo_consulta);
         firbaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         String id = firbaseAuth.getCurrentUser().getUid();
-        TextView messageView = findViewById(R.id.userhome);
         nickname = intent.getStringExtra("nickname");
-        messageView.setText(nickname);
-
-    }
-    public void publicarSolicitud(View view) {
-        Intent intent = new Intent(this, PublicarSolicitud.class);
-        intent.putExtra("nickname",nickname);
-        startActivity(intent);
-        finish();
     }
 
-    public void consultarSolicitud(View view) {
-        Intent intent = new Intent(this, TipoConsulta.class);
+    public void consultaID(View view) {
+        Intent intent = new Intent(this, ConsultarId.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
     }
-
-
-    public void logout(View view) {
-        startActivity(new Intent(this, IngresarAplicacion.class));
-        finish();
+    public void consultaTipo(View view) {
+        Intent intent = new Intent(this, ConsultaTipo.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
     }
 }

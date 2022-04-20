@@ -4,16 +4,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/diome"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Appiclaje">
         <activity
+            android:name=".ConsultaTipo"
+            android:exported="false" />
+        <activity
+            android:name=".TipoConsulta"
+            android:exported="false" />
+        <activity
             android:name=".DetalleSolicitud"
             android:exported="false" />
         <activity
-            android:name=".ConsultarSolicitud"
+            android:name=".ConsultarId"
             android:exported="false" />
         <activity
             android:name=".PublicarSolicitud"
