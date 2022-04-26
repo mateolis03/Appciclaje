@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appiclaje">
         <activity
+            android:name=".DetalleAceptar"
+            android:exported="false" />
+        <activity
+            android:name=".AceptarSolicitud"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultaEstado"
+            android:exported="false" />
+        <activity
             android:name=".ConsultaTipo"
             android:exported="false" />
         <activity

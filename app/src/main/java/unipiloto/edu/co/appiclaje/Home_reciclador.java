@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Home_reciclador extends AppCompatActivity {
 
     private FirebaseAuth firbaseAuth;
+    private String nickname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +20,27 @@ public class Home_reciclador extends AppCompatActivity {
         firbaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         TextView messageView = findViewById(R.id.userhome);
-        String text = intent.getStringExtra("nickname");
-        messageView.setText(text);
+        intent.getStringExtra("nickname");
+        messageView.setText(nickname);
 
     }
+
 
 
     public void logout(View view) {
         startActivity(new Intent(this, IngresarAplicacion.class));
         finish();
+    }
+
+    public void aceptarSolicitud(View view) {
+        startActivity(new Intent(this, AceptarSolicitud.class));
+        finish();
+
+    }
+
+    public void consultarSolicitud(View view) {
+        Intent intent = new Intent(this, TipoConsulta.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
     }
 }

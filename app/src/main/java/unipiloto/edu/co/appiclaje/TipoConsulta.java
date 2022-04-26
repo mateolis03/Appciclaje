@@ -33,4 +33,9 @@ public class TipoConsulta extends AppCompatActivity {
         intent.putExtra("nickname",nickname);
         startActivity(intent);
     }
+    public void consultaEstado(View view) {
+        Intent intent = new Intent(this, ConsultaEstado.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
+    }
 }

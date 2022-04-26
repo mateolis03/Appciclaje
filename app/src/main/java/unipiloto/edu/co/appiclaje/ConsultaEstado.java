@@ -12,19 +12,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsultaTipo extends AppCompatActivity {
+public class ConsultaEstado extends AppCompatActivity {
     private String id;
     private TextView regId;
     private String nickname;
@@ -36,17 +34,17 @@ public class ConsultaTipo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_tipo);
+        setContentView(R.layout.activity_consulta_estado);
         regId = findViewById(R.id.consulta_id);
         cont=0;
         Intent intent = getIntent();
         nickname = intent.getStringExtra("nickname");
-        listView = (ListView) findViewById(R.id.listTipo);
+        listView = (ListView) findViewById(R.id.listEstado);
         listTipo = new ArrayList<>();
-       AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ConsultaTipo.this, DetalleSolicitud.class);
+                Intent intent = new Intent(ConsultaEstado.this, DetalleSolicitud.class);
                 intent.putExtra("id", listTipo.get(i));
                 startActivity(intent);
                 finish();
@@ -77,7 +75,7 @@ public class ConsultaTipo extends AppCompatActivity {
                             List<String> values=new ArrayList<>();
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 if (!dataSnapshot.getKey().isEmpty()) {
-                                    String tipo =dataSnapshot.child("tipo").getValue().toString();
+                                    String tipo =dataSnapshot.child("estado").getValue().toString();
                                     if(tipo.equalsIgnoreCase(id)){
                                         listTipo.add(dataSnapshot.getKey());
 
@@ -85,14 +83,14 @@ public class ConsultaTipo extends AppCompatActivity {
                                 }
                             }
                             if(listTipo.isEmpty()){
-                                Toast.makeText(ConsultaTipo.this, "No existen solicitudes", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ConsultaEstado.this, "No existen solicitudes", Toast.LENGTH_LONG).show();
                                 cont=0;
                             }
 
                         }
 
                         ArrayAdapter<String> listAdapter = new ArrayAdapter<>(
-                                ConsultaTipo.this,
+                                ConsultaEstado.this,
                                 android.R.layout.simple_list_item_1,
                                 listTipo);
                         listView.setAdapter(listAdapter);
@@ -102,14 +100,14 @@ public class ConsultaTipo extends AppCompatActivity {
                     }
                 });
             }else{
-                Toast.makeText(ConsultaTipo.this, "No deje el campo vacio", Toast.LENGTH_LONG).show();
+                Toast.makeText(ConsultaEstado.this, "No deje el campo vacio", Toast.LENGTH_LONG).show();
             }
         }
         else{
-            Toast.makeText(ConsultaTipo.this, "Ya se listaron sus solicitudes", Toast.LENGTH_LONG).show();
+            Toast.makeText(ConsultaEstado.this, "Ya se listaron sus solicitudes", Toast.LENGTH_LONG).show();
         }
     }
 
 
-    }
+}
 

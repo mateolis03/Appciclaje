@@ -75,6 +75,8 @@ public class PublicarSolicitud extends AppCompatActivity {
         map.put("address", address);
         map.put("tipo", tipo);
         map.put("peso",peso);
+        map.put("estado","Pendiente");
+        map.put("asingado"," ");
         database.child("solicitudes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

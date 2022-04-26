@@ -1,17 +1,18 @@
 package unipiloto.edu.co.appiclaje;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Solicitud {
 
     private String address;
     private String nickname;
     private String peso;
     private String tipo;
+    private String estado;
+    private String asignado;
 
-    public Solicitud(String address, String nickname, String peso, String tipo) {
-        this.address = address;
-        this.nickname = nickname;
-        this.peso = peso;
-        this.tipo = tipo;
+    public Solicitud() {
+
     }
 
     public String getAddress() {
@@ -44,5 +45,21 @@ public class Solicitud {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getAsignado() {
+        return asignado;
+    }
+
+    public void setAsignado(String asignado) {
+        this.asignado = asignado;
     }
 }
