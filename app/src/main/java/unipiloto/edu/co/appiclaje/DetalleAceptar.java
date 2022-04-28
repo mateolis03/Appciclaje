@@ -67,16 +67,19 @@ public class DetalleAceptar extends AppCompatActivity {
         });
 
     }
-
-
     public void aceptarSolicitud(View view) {
+        List<String> listaSolicitud= new ArrayList<>();
+        String tipo =listaSolicitud.get(0).replace("Tipo: ","");
+        String peso =listaSolicitud.get(1).replace("Peso: ","");
+        String address =listaSolicitud.get(2).replace("Dirección: ","");
+        String nick =listaSolicitud.get(3).replace("Usuario: ","");
         Solicitud solicitud = new Solicitud();
         solicitud.setAsignado(nickname);
         solicitud.setEstado("Aceptado");
-        solicitud.setTipo(listaSolicitud.get(0));
-        solicitud.setAddress(listaSolicitud.get(2));
-        solicitud.setPeso(listaSolicitud.get(1));
-        solicitud.setNickname(listaSolicitud.get(3));
+        solicitud.setTipo(tipo);
+        solicitud.setAddress(address);
+        solicitud.setPeso(peso);
+        solicitud.setNickname(nick);
         FirebaseDatabase.getInstance().getReference("solicitudes").child(id).setValue(solicitud);
         Intent intent = new Intent(this, Home_reciclador.class);
         startActivity(intent);
