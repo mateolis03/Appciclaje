@@ -25,9 +25,10 @@ public class PublicarSolicitud extends AppCompatActivity {
     private TextView regTipo,regPeso,regAddress;
     private Validation validation;
     public FirebaseAuth firebaseAuth;
-    private String tipo,peso, address = "";
+    private String tipo, peso, address = "";
     private String id="";
     private String nickname="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,15 @@ public class PublicarSolicitud extends AppCompatActivity {
         nickname = intent.getStringExtra("nickname");
     }
 
-
+    public void sendMail(){
+         String mail="lauraduarteperez22@gmail.com";
+         String subject="Se ha publicado tu solicitud!";
+         String mensaje="Oye " + nickname+"\n"+
+         "Has publicado la solicitud la solicitud:"+"\n"+
+         "Id: "+id+"\n"+"Tipo: "+tipo+"\n"+"Peso: "+peso+"\n"+"Dirección: " +address;
+        JavaMailAPI javaMailAPI= new JavaMailAPI(this,mail,subject,mensaje);
+        javaMailAPI.execute();
+    }
     public void publicar(View view) {
         validation = new Validation();
         boolean cont = true;
@@ -89,7 +98,7 @@ public class PublicarSolicitud extends AppCompatActivity {
                 }
             }
         });
-
+       sendMail();
     }
     public void back(View view) {
         Intent intent = new Intent(PublicarSolicitud.this,Home_personaNatural.class);

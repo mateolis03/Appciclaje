@@ -20,7 +20,7 @@ public class Home_reciclador extends AppCompatActivity {
         firbaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         TextView messageView = findViewById(R.id.userhome);
-        intent.getStringExtra("nickname");
+       nickname= intent.getStringExtra("nickname");
         messageView.setText(nickname);
 
     }
@@ -33,7 +33,9 @@ public class Home_reciclador extends AppCompatActivity {
     }
 
     public void aceptarSolicitud(View view) {
-        startActivity(new Intent(this, AceptarSolicitud.class));
+        Intent intent = new Intent(this, AceptarSolicitud.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
         finish();
 
     }
@@ -42,5 +44,6 @@ public class Home_reciclador extends AppCompatActivity {
         Intent intent = new Intent(this, TipoConsulta.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
+        finish();
     }
 }
