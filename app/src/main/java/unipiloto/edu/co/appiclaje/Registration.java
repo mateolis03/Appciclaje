@@ -141,15 +141,18 @@ public class Registration extends AppCompatActivity {
                                 Toast.makeText(Registration.this, "Usuario registrado", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(Registration.this, IngresarAplicacion.class));
                                 finish();
+                            } else {
+                                if (task2.getException().toString().contains("email"))
+                                    Toast.makeText(Registration.this, "Este correo ya está registrado", Toast.LENGTH_LONG).show();
+                                else {
+                                    Toast.makeText(Registration.this, "La contraseña debe tener 6 caracteres ", Toast.LENGTH_LONG).show();
+                                }
                             }
-
                         }
+
                     });
-                } else
-                    if (task.getException().toString().contains("email"))
-                    Toast.makeText(Registration.this, "Este correo ya está registrado", Toast.LENGTH_LONG).show();
-                    else{
-            }           Toast.makeText(Registration.this, "La contraseña debe tener 6 caracteres ", Toast.LENGTH_LONG).show();}
+                }
+            }
         });
 
     }

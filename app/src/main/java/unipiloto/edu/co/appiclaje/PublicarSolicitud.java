@@ -41,7 +41,7 @@ public class PublicarSolicitud extends AppCompatActivity {
     }
 
     public void sendMail(){
-         String mail="lauraduarteperez22@gmail.com";
+         String mail="lduarteperez2@gmail.com";
          String subject="Se ha publicado tu solicitud!";
          String mensaje="Oye " + nickname+"\n"+
          "Has publicado la solicitud la solicitud:"+"\n"+
@@ -49,6 +49,7 @@ public class PublicarSolicitud extends AppCompatActivity {
         JavaMailAPI javaMailAPI= new JavaMailAPI(this,mail,subject,mensaje);
         javaMailAPI.execute();
     }
+
     public void publicar(View view) {
         validation = new Validation();
         boolean cont = true;
@@ -86,20 +87,18 @@ public class PublicarSolicitud extends AppCompatActivity {
         map.put("peso",peso);
         map.put("estado","Pendiente");
         map.put("asingado"," ");
-        database.child("solicitudes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+       database.child("solicitudes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    sendMail();
                     Toast.makeText(PublicarSolicitud.this, "Solicitud publicada", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(PublicarSolicitud.this,Home_personaNatural.class);
-                    intent.putExtra("nickname",nickname);
-                    startActivity(intent);
-                    finish();
                 }
             }
         });
-       sendMail();
+
     }
+
     public void back(View view) {
         Intent intent = new Intent(PublicarSolicitud.this,Home_personaNatural.class);
         intent.putExtra("nickname",nickname);

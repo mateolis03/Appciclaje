@@ -26,7 +26,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.066" />
@@ -34,7 +34,7 @@
     <Button
         android:id="@+id/logout"
         android:layout_width="104dp"
-        android:layout_height="31dp"
+        android:layout_height="48dp"
         android:backgroundTint="#00ECDEDE"
         android:fontFamily="@font/cairo"
         android:onClick="logout"
@@ -54,7 +54,7 @@
         android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.591"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.082"
@@ -66,10 +66,10 @@
         android:layout_height="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.626"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144"
+        app:layout_constraintVertical_bias="0.161"
         app:srcCompat="@drawable/logout" />
 
     <Button
@@ -77,51 +77,77 @@
         android:layout_width="165dp"
         android:layout_height="58dp"
         android:backgroundTint="@color/green"
-        android:text="Consultar Solicitud"
         android:onClick="consultarSolicitud"
+        android:text="Consultar Solicitud"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.424" />
 
     <Button
         android:id="@+id/aceptarSolicitud"
-        android:layout_width="165dp"
-        android:layout_height="58dp"
+        android:layout_width="173dp"
+        android:layout_height="57dp"
         android:backgroundTint="@color/green"
-        android:text="Aceptar solicitudes"
         android:onClick="aceptarSolicitud"
+        android:text="Aceptar solicitudes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786" />
+        app:layout_constraintVertical_bias="0.666" />
+
+    <Button
+        android:id="@+id/finalizarSolicitud"
+        android:layout_width="173dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/green"
+        android:onClick="finalizarSolicitud"
+        android:text="Finalizar solicitud"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
 
     <ImageView
         android:id="@+id/imageConsultar"
-        android:layout_width="146dp"
-        android:layout_height="164dp"
+        android:layout_width="86dp"
+        android:layout_height="123dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456"
+        app:layout_constraintVertical_bias="0.43"
         app:srcCompat="@drawable/lupa" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="137dp"
-        android:layout_height="272dp"
+        android:layout_width="78dp"
+        android:layout_height="161dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintHorizontal_bias="0.855"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938"
+        app:layout_constraintVertical_bias="0.71"
         app:srcCompat="@drawable/aceptar" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="134dp"
+        android:layout_height="114dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.936"
+        app:srcCompat="@drawable/finish" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

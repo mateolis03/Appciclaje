@@ -46,4 +46,12 @@ public class Home_reciclador extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+    public void finalizarSolicitud(View view) {
+        Intent intent = new Intent(this, FinalizarSolicitud.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
+        finish();
+    }
 }
