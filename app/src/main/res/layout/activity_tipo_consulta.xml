@@ -25,6 +25,7 @@
         android:layout_width="135dp"
         android:layout_height="149dp"
         android:text="Consulta por mapa"
+        android:onClick="consultaMapa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.894"

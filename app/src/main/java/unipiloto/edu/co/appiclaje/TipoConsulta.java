@@ -38,4 +38,9 @@ public class TipoConsulta extends AppCompatActivity {
         intent.putExtra("nickname",nickname);
         startActivity(intent);
     }
+    public void consultaMapa(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
+    }
 }

@@ -63,7 +63,6 @@ public class ConsultarId extends AppCompatActivity {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             if (!dataSnapshot.getKey().isEmpty()) {
                                 listaId.add(dataSnapshot.getKey());
-
                             }
                         }
                     }
