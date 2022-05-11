@@ -90,8 +90,7 @@ public class DetalleFinalizar extends AppCompatActivity {
                     Intent intent = new Intent(DetalleFinalizar.this, Home_reciclador.class);
                     intent.putExtra("nickname", nickname);
                     startActivity(intent);
-                    finish();
-                }
+               }
             }
         });
     }

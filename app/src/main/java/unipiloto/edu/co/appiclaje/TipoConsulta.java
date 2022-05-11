@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class TipoConsulta extends AppCompatActivity {
     private FirebaseAuth firbaseAuth;
     public String nickname="";
+    public String tipo="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,26 +21,30 @@ public class TipoConsulta extends AppCompatActivity {
         Intent intent = getIntent();
         String id = firbaseAuth.getCurrentUser().getUid();
         nickname = intent.getStringExtra("nickname");
+        tipo = intent.getStringExtra("tipo");
     }
 
     public void consultaID(View view) {
         Intent intent = new Intent(this, ConsultarId.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
-    }
+          }
     public void consultaTipo(View view) {
         Intent intent = new Intent(this, ConsultaTipo.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
+
     }
     public void consultaEstado(View view) {
         Intent intent = new Intent(this, ConsultaEstado.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
-    }
+           }
     public void consultaMapa(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
+        Intent intent = new Intent(this, Mapa.class);
         intent.putExtra("nickname",nickname);
+        intent.putExtra("tipo",tipo);
         startActivity(intent);
+
     }
 }

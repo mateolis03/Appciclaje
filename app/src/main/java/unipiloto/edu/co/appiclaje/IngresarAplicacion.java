@@ -51,7 +51,7 @@ public class IngresarAplicacion extends AppCompatActivity {
     public void registrarUsuario(View view) {
         Intent intent = new Intent(this, Registration.class);
         startActivity(intent);
-        finish();
+
     }
 
     public void home(View view) {
@@ -89,12 +89,12 @@ public class IngresarAplicacion extends AppCompatActivity {
                                             Intent intent = new Intent(IngresarAplicacion.this, Home_reciclador.class);
                                             intent.putExtra("nickname", nickname);
                                             startActivity(intent);
-                                            finish();
+
                                         } else if (typeuser.equals("Persona Natural")) {
                                             Intent intent = new Intent(IngresarAplicacion.this, Home_personaNatural.class);
                                             intent.putExtra("nickname", nickname);
                                             startActivity(intent);
-                                            finish();
+
                                         }
 
                                     }

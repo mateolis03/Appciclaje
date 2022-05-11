@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="unipiloto.edu.co.appiclaje">
+    package="unipiloto.edu.co.appiclaje" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-
 
     <application
         android:allowBackup="true"
@@ -12,9 +14,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Appiclaje">
+        android:theme="@style/Theme.Appiclaje" >
         <activity
-            android:name=".MapsActivity"
+            android:name=".Mapa"
             android:exported="false" />
         <activity
             android:name=".DetalleFinalizar"
@@ -60,7 +62,7 @@
             android:exported="false" />
         <activity
             android:name=".IngresarAplicacion"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,7 +72,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyDaLYZvMoOdJbdcwzIY5YOXTzeIH5nMiF0" />
     </application>
 
 </manifest>

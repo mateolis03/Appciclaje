@@ -47,7 +47,7 @@ public class ConsultarId extends AppCompatActivity {
                 Intent intent = new Intent(ConsultarId.this, DetalleSolicitud.class);
                 intent.putExtra("id",listaId.get(i));
                 startActivity(intent);
-                finish();
+
             }
         };
         listView.setOnItemClickListener(itemClickListener);

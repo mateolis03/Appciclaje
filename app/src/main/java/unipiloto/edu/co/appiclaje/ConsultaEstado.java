@@ -47,7 +47,7 @@ public class ConsultaEstado extends AppCompatActivity {
                 Intent intent = new Intent(ConsultaEstado.this, DetalleSolicitud.class);
                 intent.putExtra("id", listTipo.get(i));
                 startActivity(intent);
-                finish();
+
             }
         };
         listView.setOnItemClickListener(itemClickListener);

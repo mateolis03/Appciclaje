@@ -36,15 +36,15 @@ public class Home_reciclador extends AppCompatActivity {
         Intent intent = new Intent(this, AceptarSolicitud.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
-        finish();
 
     }
 
     public void consultarSolicitud(View view) {
         Intent intent = new Intent(this, TipoConsulta.class);
         intent.putExtra("nickname",nickname);
+        intent.putExtra("tipo","Reciclador");
         startActivity(intent);
-        finish();
+
     }
 
 
@@ -52,6 +52,6 @@ public class Home_reciclador extends AppCompatActivity {
         Intent intent = new Intent(this, FinalizarSolicitud.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
-        finish();
+
     }
 }

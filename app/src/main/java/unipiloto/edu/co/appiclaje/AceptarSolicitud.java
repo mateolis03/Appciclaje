@@ -44,6 +44,8 @@ public class AceptarSolicitud extends AppCompatActivity {
                 intent.putExtra("nickname",nickname);
                 startActivity(intent);
 
+
+
             }
         };
         listView.setOnItemClickListener(itemClickListener);

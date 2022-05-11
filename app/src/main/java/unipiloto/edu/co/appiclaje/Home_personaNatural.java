@@ -29,12 +29,12 @@ public class Home_personaNatural extends AppCompatActivity {
         Intent intent = new Intent(this, PublicarSolicitud.class);
         intent.putExtra("nickname",nickname);
         startActivity(intent);
-        finish();
     }
 
     public void consultarSolicitud(View view) {
         Intent intent = new Intent(this, TipoConsulta.class);
         intent.putExtra("nickname",nickname);
+        intent.putExtra("tipo","Natural");
         startActivity(intent);
     }
 

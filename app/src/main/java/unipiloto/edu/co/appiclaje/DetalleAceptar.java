@@ -94,7 +94,7 @@ public class DetalleAceptar extends AppCompatActivity {
                     Intent intent = new Intent(DetalleAceptar.this, Home_reciclador.class);
                     intent.putExtra("nickname", nickname);
                     startActivity(intent);
-                    finish();
+                   
                 }
             }
         });

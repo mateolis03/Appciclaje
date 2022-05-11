@@ -49,7 +49,7 @@ public class ConsultaTipo extends AppCompatActivity {
                 Intent intent = new Intent(ConsultaTipo.this, DetalleSolicitud.class);
                 intent.putExtra("id", listTipo.get(i));
                 startActivity(intent);
-                finish();
+
             }
         };
         listView.setOnItemClickListener(itemClickListener);
@@ -72,7 +72,6 @@ public class ConsultaTipo extends AppCompatActivity {
                 query.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                         if (snapshot.exists()) {
                             List<String> values=new ArrayList<>();
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -80,7 +79,6 @@ public class ConsultaTipo extends AppCompatActivity {
                                     String tipo =dataSnapshot.child("tipo").getValue().toString();
                                     if(tipo.equalsIgnoreCase(id)){
                                         listTipo.add(dataSnapshot.getKey());
-
                                     }
                                 }
                             }

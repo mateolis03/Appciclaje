@@ -26,10 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private String nickname;
+    private String tipo;
     private List<String> listaAddress = new ArrayList<>();
     private List<String> listaId = new ArrayList<>();
 
@@ -42,6 +43,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
         Intent intent = getIntent();
         nickname = intent.getStringExtra("nickname");
+        tipo =intent.getStringExtra("tipo");
     }
 
     public LatLng latLogwithAddress(String strAddress) {
@@ -49,25 +51,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         List<Address> address;
 
         try {
-
-            address = coder.getFromLocationName(strAddress, 5);
-
-
+            address = coder.getFromLocationName(strAddress, 100);
             if (address != null) {
-
-
                 try {
                     Address location = address.get(0);
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-
-                    //Animate and Zoon on that map location
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                     mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                     return latLng;
                 } catch (IndexOutOfBoundsException er) {
                     Toast.makeText(this, "Location isn't available", Toast.LENGTH_SHORT).show();
                 }
-
             }
 
 
@@ -79,7 +73,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Query query = FirebaseDatabase.getInstance().getReference("solicitudes").orderByChild("nickname").equalTo(nickname);
+        Query query=null;
+
+        if(tipo.equalsIgnoreCase("Natural")) {
+             query = FirebaseDatabase.getInstance().getReference("solicitudes").orderByChild("nickname").equalTo(nickname);
+        }else{
+            query = FirebaseDatabase.getInstance().getReference("solicitudes");
+        }
+
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -88,8 +89,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         if (!dataSnapshot.getKey().isEmpty()) {
                             String id = dataSnapshot.getKey();
                             String direccion = dataSnapshot.child("address").getValue().toString();
+                            String estado = dataSnapshot.child("estado").getValue().toString();
                             listaAddress.add(direccion);
-                            listaId.add(id);
+                            listaId.add(id+"-"+estado);
                         }
                     }
                 }
