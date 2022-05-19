@@ -54,4 +54,10 @@ public class Home_reciclador extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void recorrido(View view) {
+        Intent intent = new Intent(this, Mapa.class);
+        intent.putExtra("nickname",nickname);
+        startActivity(intent);
+    }
 }

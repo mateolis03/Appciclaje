@@ -41,7 +41,7 @@ public class PublicarSolicitud extends AppCompatActivity {
     }
 
     public void sendMail(){
-         String mail="lduarteperez2@gmail.com";
+         String mail="pruebaweb231@gmail.com";
          String subject="Se ha publicado tu solicitud!";
          String mensaje="Oye " + nickname+"\n"+
          "Has publicado la solicitud la solicitud:"+"\n"+
