@@ -23,6 +23,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_registrar_usuario.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_tipo_consulta.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/list_item.xml" value="0.10914855072463768" />
+        <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_consulta_tipo.xml" value="0.25" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_consultar_solicitud.xml" value="0.264" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_home_persona_natural.xml" value="0.1" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_olvidar_contrasena.xml" value="0.1" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_publicar_solicitud.xml" value="0.25" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_registrar_usuario.xml" value="0.264" />
+        <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_solicitudes_mapa.xml" value="0.25" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/activity_tipo_consulta.xml" value="0.25" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/list_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/mateo/AndroidStudioProjects/Appciclaje/app/src/main/res/layout/toolbar.xml" value="0.22509057971014493" />

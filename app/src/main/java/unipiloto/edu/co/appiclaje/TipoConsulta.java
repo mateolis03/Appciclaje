@@ -41,7 +41,7 @@ public class TipoConsulta extends AppCompatActivity {
         startActivity(intent);
            }
     public void consultaMapa(View view) {
-        Intent intent = new Intent(this, Mapa.class);
+        Intent intent = new Intent(this, SolicitudesMapa.class);
         intent.putExtra("nickname",nickname);
         intent.putExtra("tipo",tipo);
         startActivity(intent);
